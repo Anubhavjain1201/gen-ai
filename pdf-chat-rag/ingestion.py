@@ -28,7 +28,7 @@ def setup_vector_db(split_docs):
     )
 
     # setup vector store
-    QdrantVectorStore.from_documents(
+    return QdrantVectorStore.from_documents(
         collection_name="pdf-rag",
         embedding=embedding_model,
         documents=split_docs,

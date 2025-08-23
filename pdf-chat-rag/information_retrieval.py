@@ -36,10 +36,9 @@ def create_system_prompt(search_context):
 
 
 # Answer user query
-def answer_query(input_query):
+def answer_query(input_query, vector_store: QdrantVectorStore):
 
-    qdrant_vector_store = create_vector_store()
-    similar_results = qdrant_vector_store.similarity_search(query=input_query)
+    similar_results = vector_store.similarity_search(query=input_query)
 
     # Prepare search_context
     search_context = "\n\n".join(
@@ -63,7 +62,10 @@ def answer_query(input_query):
                 "role": "user",
                 "content": input_query,
             }
-        ]
+        ],
+        stream=True
     )
 
-    return chat_response
+    for event in chat_response:
+        if event.type == "response.output_text.delta":
+            yield event.delta
