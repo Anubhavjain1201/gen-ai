@@ -41,14 +41,6 @@ chat_response = openai_client.responses.create(
             "role": "user",
             "content": "Can you help me design a logo for my brand?"
         },
-        # {
-        #     "role": "assistant",
-        #     "content": "Hi Anubhav! I specialize in e-commerce website development. However, if you want to implement a feature in your e-commerce site that requires finding the smallest number in an array (for example, finding the lowest price from a list), I can help you implement that functionality within your website's code. Would you like me to guide you on how to integrate such logic into your e-commerce platform? For example, using Python with a backend framework or a frontend solution? Let me know!"
-        # },
-        # {
-        #     "role": "user",
-        #     "content": "I am running a small wholesale shop of medical goods. I want to take my business online and want to build an ecom website. I want to build it quickly with low cost but also be able to have control over it to add b2b features as necessary in future and be able to maintain it. Give me a detailed analysis on what are my options and how can I proceed with it?"
-        # }
     ]
 )
 
